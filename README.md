@@ -2,6 +2,9 @@
 # Benchmarking node sodium libraries compared to tweetnacl and also in C
 
 The goal of this benchmark has been to test alternative singature verification libraries for the cryptpad project https://cryptpad.org, as it is the most heavy task in terms of CPU on the server.
+Licence: BSD 
+Copyright: CryptPad Team 2024 
++ Author of https://gist.github.com/jonasfj/af453cc2c569312ac59
 
 ## Install
 
