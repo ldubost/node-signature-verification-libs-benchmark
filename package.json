@@ -1,0 +1,12 @@
+{
+  "name": "bench-sodium",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "libsodium": "^0.7.13",
+    "libsodium-wrappers": "^0.7.13",
+    "sodium": "^3.0.2",
+    "sodium-native": "^4.1.1",
+    "tweetnacl": "^1.0.3"
+  }
+}
