@@ -1,15 +1,17 @@
 
-Benchmarking node sodium libraries compared to tweetnacl and also in C
+# Benchmarking node sodium libraries compared to tweetnacl and also in C
 
-Install
+The goal of this benchmark has been to test alternative singature verification libraries for the cryptpad project https://cryptpad.org, as it is the most heavy task in terms of CPU on the server.
+
+## Install
 
 ./build.sha
 
-Run
+## Run
 
 ./run.sh
 
-Resuls on an Intel Gold 6226R
+## Resuls on an Intel Gold 6226R
 
 ./run.sh 
  - testing libsodium 10 rounds of 5000 signatures
@@ -42,3 +44,12 @@ real    0m3.158s
 user    0m3.152s
 sys     0m0.004s
 
+Also the cpp test was done with a specially compiled version of libsodium without assembly code (so without any hardware acceleration) and the results were similar. It seems hardware acceleration is not useful for signature verification.
+
+## Summary
+
+- sodium-native would be the best for server (at least 30x faster than tweetnacl) and the library seems quite active
+- libsodium for client (2x slower though, but at least 15x faster than tweetnacl) as it is in webassembly.
+- sodium-native is only 10% slower than pure C.
+
+These measures are without overhead in the cryptpad context. A load test showed a reduction of 5x in terms of CPU of the workers handling the signature verification.
